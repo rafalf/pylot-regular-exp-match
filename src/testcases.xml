@@ -1,0 +1,14 @@
+
+<testcases>
+   <case>
+        <url>https://www.ammado.com/community/169636</url>
+	<verify>Fundraising</verify>
+	<regular_expressions>donations_count</regular_expressions>
+    </case>
+   <case>
+        <url>https://www.ammado.com/community/159441</url>
+	<verify>Fundraising</verify>
+	<regular_expressions>donations_count</regular_expressions>
+    </case>
+      
+</testcases>
