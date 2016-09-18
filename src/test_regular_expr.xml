@@ -1,12 +1,12 @@
 
 <testcases>
    <case>
-        <url>https://www.ammado.com/community/169636</url>
+    <url>https://www.test_url.com</url>
 	<verify>Fundraising</verify>
 	<regular_expressions>span:class:donationsAmount</regular_expressions>
     </case>
    <case>
-        <url>https://www.ammado.com/community/159441</url>
+        <url>https://www.test_url.com</url>
 	<verify>Fundraising</verify>
 	<regular_expressions>span:class:donationsAmount</regular_expressions>
     </case>
