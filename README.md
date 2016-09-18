@@ -20,7 +20,7 @@ is the equivalent of the following expression looked up in the page source conte
   <span class="donationsAmount">\d{1,6}</span>
   ```
   
- ##### plain regex
+##### plain regex
  
  ```
 <case>
@@ -52,4 +52,4 @@ where the  Regular Expression Match is the text matching \d{1,6} or Latest Updat
 
 run.py -g -x test_regular_expr.xml -o "C:\"
 
-Use -g for GUI for Pytahon 2.7+ ( unless on Python 2.6)
+Use -g for GUI for Python 2.7+ ( unless on Python 2.6)
