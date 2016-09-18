@@ -233,10 +233,13 @@ class LoadAgent(Thread):  # each Agent/VU runs in its own thread
                         if not req.verify_negative == '':
                             if re.search(req.verify_negative, content, re.DOTALL):
                                 is_error = True
+                        
                         if req.regular_expressions:    # customized
                             
-                            if req.regular_expressions == 'donations_count':
-                                searchObj  = re.search(r'\d{1,6} Donations', content , re.M|re.I)
+                            reg_split = req.regular_expressions.split(':')
+                            
+                            reg = '<%s %s="%s">\d{1,6}</span>' % (reg_split[0], reg_split[1], reg_split[2])
+                            searchObj  = re.search(r'' + reg + '', content , re.M|re.I) 
                             
                             if searchObj:
                                 matched = searchObj.group()
