@@ -1,12 +1,12 @@
 
 <testcases>
    <case>
-    <url>https://www.test_url.com</url>
+    <url>https://www.ammado.com/nonprofit/ifrc</url>
 	<verify>Fundraising</verify>
 	<regular_expressions>span:class:donationsAmount</regular_expressions>
     </case>
    <case>
-        <url>https://www.test_url.com</url>
+        <url>https://www.ammado.com/nonprofit/ifrc</url>
 	<verify>Fundraising</verify>
 	<regular_expressions>span:class:donationsAmount</regular_expressions>
     </case>

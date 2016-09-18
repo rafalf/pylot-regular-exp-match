@@ -238,8 +238,11 @@ class LoadAgent(Thread):  # each Agent/VU runs in its own thread
                             
                             reg_split = req.regular_expressions.split(':')
                             
-                            reg = '<%s %s="%s">\d{1,6}</span>' % (reg_split[0], reg_split[1], reg_split[2])
-                            searchObj  = re.search(r'' + reg + '', content , re.M|re.I) 
+                            if reg_split[0] == 'plain':
+                                reg_exp = reg_split[1]
+                            else:
+                                reg_exp = '<%s %s="%s">\d{1,6}</span>' % (reg_split[0], reg_split[1], reg_split[2])
+                            searchObj  = re.search(r'' + reg_exp + '', content , re.M|re.I) 
                             
                             if searchObj:
                                 matched = searchObj.group()
