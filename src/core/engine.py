@@ -233,21 +233,23 @@ class LoadAgent(Thread):  # each Agent/VU runs in its own thread
                         if not req.verify_negative == '':
                             if re.search(req.verify_negative, content, re.DOTALL):
                                 is_error = True
-                        
-                        if req.regular_expressions:    # customized
-                            
-                            reg_split = req.regular_expressions.split(':')
-                            
-                            if reg_split[0] == 'plain':
-                                reg_exp = reg_split[1]
+
+                        if hasattr(req, 'regular_expressions'):
+
+                            if req.regular_expressions != '':    # customized
+                                reg_split = req.regular_expressions.split(':')
+                                if reg_split[0] == 'plain':
+                                    reg_exp = reg_split[1]
+                                else:
+                                    reg_exp = '<%s %s="%s">\d{1,6}</span>' % (reg_split[0], reg_split[1], reg_split[2])
+                                searchObj  = re.search(r'' + reg_exp + '', content , re.M|re.I)
+
+                                if searchObj:
+                                    matched = searchObj.group()
+                                else:
+                                    matched = "noMatch"
                             else:
-                                reg_exp = '<%s %s="%s">\d{1,6}</span>' % (reg_split[0], reg_split[1], reg_split[2])
-                            searchObj  = re.search(r'' + reg_exp + '', content , re.M|re.I) 
-                            
-                            if searchObj:
-                                matched = searchObj.group()
-                            else:
-                                matched = "noMatch"
+                                matched = "RegularExpressionEqualNone"
                         else:
                             matched = "noRegularExpression"
                                 
